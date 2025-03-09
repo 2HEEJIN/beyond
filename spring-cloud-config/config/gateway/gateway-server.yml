@@ -1,0 +1,31 @@
+server:
+  port: 8000
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+spring:
+  cloud:
+    gateway:
+      # 요청을 적절한 서비스로 전달하기 위한 설정
+      routes:
+      - id: university-service
+        # lb는 로드밸런서를 의미한다.
+        # 요청이 라우팅될 때 실제 서비스의 주소를 의미한다.
+        uri: lb://university-service
+        # 라우팅 조건을 정의한다.
+        predicates:
+        - Path=/university/**
+        # 경로 재작성 필터로 요청 경로를 다른 경로로 변경한다.
+        filters:
+        - RewritePath= /university/(?<path>.*), /$\{path}
+      - id: subject-service
+        uri: lb://subject-service
+        predicates:
+        - Path=/subject/**
+        filters:
+        - RewritePath= /subject/(?<path>.*), /$\{path}

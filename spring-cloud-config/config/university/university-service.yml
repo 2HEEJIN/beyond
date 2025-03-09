@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/web
+    username: "{cipher}92a1bc3b9ba07afaec7d051a23737a40fe0dd5d66a3a12c12f7665c3502fbbbb"
+    password: "{cipher}e54b1988474973fae3202de97886b2fa83d5a2a8eb16dd3555ab5dcf21c14eb9"
+  # Redis 연결을 위한 설정
+  data:
+    redis:
+      host: localhost
+      port: 6379
+mybatis:
+    type-aliases-package: com.beyond.university.*.model.vo
+    mapper-locations:
+      - classpath:mappers/**/*.xml
+    configuration:
+      jdbc-type-for-null: NULL
+springdoc:
+  swagger-ui:
+    operations-sorter: method
+  paths-to-match:
+  - /api/v1/**
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defalue-zone: http://localhost:8761/eureka/
+springboot:
+  jwt:
+    secret: "{cipher}5d37d57ea7bfed8b3b9b1b6238ef2bbb71c4bde227f2347b0154003fd6a0dfe025935cca58b9de78186932751dff3a8bb717e74024855697350d658363e03cba"

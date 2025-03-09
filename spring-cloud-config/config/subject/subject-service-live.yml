@@ -1,0 +1,4 @@
+server:
+  port: 30032
+# university-service:
+#   base-url: http://localhost:30031/api/v1/university-service/departments/

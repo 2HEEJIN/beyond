@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/web
+    username: "{cipher}934fdfe9a08c93e9779c3ab13380891b724bf83a62c8f3ff1f68ae6ca31bf569"
+    password: "{cipher}2b69410448f25074f33091fc828e1227a160797f42949168ce5e4723c9f0521a"
+mybatis:
+  type-aliases-package: com.beyond.university.*.model.vo
+  mapper-locations:
+    - classpath:mappers/**/*.xml
+springdoc:
+  swagger-ui:
+    operations-sorter: method
+  paths-to-match:
+    - /api/v1/**
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defalue-zone: http://localhost:8761/eureka/
+university-service:
+  # base-url: http://university-service/api/v1/university-service/departments/ 
+  base-url: http://gateway-server/university/api/v1/university-service/departments/

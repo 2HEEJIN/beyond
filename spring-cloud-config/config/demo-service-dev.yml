@@ -1,0 +1,4 @@
+example:
+  property: Hello World(DEV)
+  name: 홍길동
+  pass: "{cipher}9ec65da7146e33cbb557524a2e4131c3df9fd6b41712bf44ff431c8cf022ce61"

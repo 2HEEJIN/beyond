@@ -1,0 +1,19 @@
+server:
+  port: 8089
+logging:
+  level:
+    '[org.springframework.web]': debug
+    '[org.mybatis]': debug
+    '[org.mariadb.jdbc.client.impl]': debug
+# university-service:
+#   base-url: http://localhost:8088/api/v1/university-service/departments/
+#management:
+#  endpoint:
+#    health:
+#      show-details: always
+management:
+  endpoints:
+    web:
+      exposure:
+        # include: beans,env
+        include: "*"
