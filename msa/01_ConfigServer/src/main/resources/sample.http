@@ -1,0 +1,11 @@
+### 프로퍼티 암호화
+POST http://localhost:8888/encrypt
+Content-Type: text/plain
+
+beyond
+
+### 프로퍼티 복호화
+POST http://localhost:8888/decrypt
+Content-Type: text/plain
+
+c03181175b9cce7abbda494161bb80fa3459f31df3b549655ad240386347abfd
